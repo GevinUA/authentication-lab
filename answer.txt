@@ -1,0 +1,21 @@
+Question 1: What authentication scheme is used by default in Django Rest Framework's browsable API? How is this managed?
+
+According to the official Rest framework documentation, the default authentification using the DEFAULT_AUTHENTICATION_CLASSES setting, including
+the BasicAuthentification and SessionAuthentification.
+It can managed by set the DEFAULT_AUTHENTICATION_CLASSES or set the authentication scheme on a per-view or per-viewset basis, using the APIView class-based views, or using the @api_view decorator with function based views.
+
+Question 2: What authentication scheme is used by httpie when querying with the -a or --auth option flag?
+The default scheme when querying with the -a or --auth option flag is basic scheme. We can also change scheme by setting flag --auth-type or -A.
+
+
+Question 3: What is the difference between Session Authentication and Token Authentication? How is Token Authentication an improvement over Basic Authentication?
+The session authentification is maintained by the server side, where the server will determine for the time length of connection between client and server to kick user out. The token authtication requires user to take a good copy of the genetared good token to log in.
+Token auth is more secure than basic auth, because user no longer need to input the username and password, they could store the token locally to verift the identity, so there is no risk of password leakage.
+
+
+Question 4: Provide a high level summary of what happens during an OAuth2 authentication flow. For instance: bitbucket.org > Log In > Log in with Google. What happens when I click "Log in with Google"?
+
+When clicked "Log in with Google", user gives the Auth Grant to the application. The application receives this Grant, and send it to the Google Auth Server, the Server will return an Access Token to the Application. Then, after application received this token, it will send this token to the Resource Server where it stores the account data, and send relevant data to the application.
+
+Question 5: Please provide a link to your code.
+https://github.com/GevinUA/authentication-lab
